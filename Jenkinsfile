@@ -18,9 +18,9 @@ pipeline {
         stage('postbuild') {
             steps {
                 archiveArtifacts artifacts: '**/target/*.war',
-                                 onlyIfSuccessful: yes
+                                 onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml',
-                      allowEmptyResults: no
+                      allowEmptyResults: false
             }
         }
     }
